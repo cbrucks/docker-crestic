@@ -1,0 +1,17 @@
+ersion: "3.9"
+
+services:
+  crestic:
+    image: ghcr.io/cbrucks/crestic
+    container_name: crestic
+    hostname: crestic
+    restart: unless-stopped
+    environment:
+      - CRESTIC_CONFIG_FILE=/config/crestic.cfg
+      # - CRESTIC_DRYRUN=1
+    volumes:
+      - /path/to/config/dir/:/config/
+      - /path/to/sources/:/sources/
+      - /path/to/backups/:/backups/
+    tmpfs:
+      - /tmp
