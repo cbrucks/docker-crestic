@@ -1,4 +1,4 @@
-FROM ghcr.io/linuxserver/baseimage-alpine-nginx:3.14 AS base
+FROM ghcr.io/linuxserver/baseimage-alpine:3.14 AS base
 
 # set version label
 ARG BUILD_DATE
@@ -6,7 +6,6 @@ ARG VERSION
 ARG CRESTIC_TAG=v0.6.0
 LABEL build_version="version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="cbrucks"
-
 
 # install packages
 RUN \
@@ -30,7 +29,7 @@ RUN \
     /tmp/*
 
 # copy local files
-COPY root/ /
+#COPY root/ /
 
 # ports and volumes
 VOLUME /config /sources /backups
